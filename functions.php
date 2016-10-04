@@ -117,13 +117,19 @@ function erin_scripts() {
 	
 	wp_enqueue_script( 'erin-js', get_template_directory_uri() . '/js/erin.min.js', array(), '20161215', true );
 
-	//wp_enqueue_script( 'erin-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'erin_scripts' );
+
+// Adds animations to the home page
+function erin_front_page_script() {
+	if( is_front_page() ) {
+		wp_enqueue_script( 'frontpage-js', get_template_directory_uri() . '/js/frontpage.min.js', array(), '20161003', true );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'erin_front_page_script' );
 
 /**
  * Implement the Custom Header feature.

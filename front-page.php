@@ -9,11 +9,8 @@
 get_header(); 
 require_once('inc/acf.php'); ?>
 <div id="content" class="site-content">
- <header class="hero-section hero-header max-content-width center section-padding-bottom">
- 	<h1 id="hero-text" class="hero-title"><?php echo $hero_title; ?></h1>
- </header>
- <section id="process" class="home-section home-section--process has-blue-background-ltr scrollifed">
- 	<section id="what-i-do" class="what-i-do max-content-width center">
+ <section id="process" class="home-section home-section--process has-blue-background-ltr">
+ 	<section id="what-i-do" class="what-i-do max-content-width center animated">
  		<header class="home-section-header what-i-do-header">
  			<h2 class="what-i-do-title home-section-title heading-margin-large"><?php echo $what_i_do_title; ?></h2>
  		</header>
@@ -26,7 +23,7 @@ require_once('inc/acf.php'); ?>
 	 		</div>
  		</div>
  	</section>
- 	<section id="how-it-works" class="how-it-works max-content-width center">
+ 	<section id="how-it-works" class="how-it-works max-content-width center animated">
  		<header class="home-section-header how-it-works-header">
  			<h2 class="how-it-works-title home-section-title heading-margin-large"><?php echo $how_it_works_title; ?></h2>
  		</header>
@@ -52,8 +49,8 @@ require_once('inc/acf.php'); ?>
  		</div>
  	</section>
  </section>
- <section id="help" class="home-section home-section--help-with scrollifed">
- 	<section class="what-i-can-help-with max-content-width center">
+ <section id="help" class="home-section home-section--help-with">
+ 	<section id="i-can-help" class="what-i-can-help-with max-content-width center animated">
 	 	<header class="home-section-header help-with-header">
 	 		<h2 class="help-with-title home-section-title heading-margin-large"><?php echo $what_title; ?></h2>
 	 	</header>
@@ -89,8 +86,8 @@ require_once('inc/acf.php'); ?>
  		</div>
  	</section>
  </section>
- <section id="hire" class="home-section home-section--hire has-blue-background-rtl scrollifed">
- 	<section id="hire-me" class="hire-me max-content-width center">
+ <section id="hire" class="home-section home-section--hire has-blue-background-rtl">
+ 	<section id="hire-me" class="hire-me max-content-width center animated">
  		<header class="home-section-header hire-me-header">
  			<h2 class="hire-title home-section-title heading-margin-small"><?php echo $hire_me_title; ?></h2>
  		</header>
@@ -103,7 +100,7 @@ require_once('inc/acf.php'); ?>
 	 		</div>
  		</div>
  	</section>
- 	<section id="view-work" class="view-my-work max-content-width center">
+ 	<section id="view-work" class="view-my-work max-content-width center animated">
  		<header class="home-section-header view-my-work-header">
  			<h2 class="view-my-work-title home-section-title heading-margin-small"><?php echo $view_my_work_title; ?></h2>
  		</header>
