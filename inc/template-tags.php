@@ -24,11 +24,6 @@ function erin_main_menu() {
     }
 }
 
-// Walker Fix
-//class ErinMainMenu extends Walker_Nav_Menu {
-//
-//}
-
 // Update the footer menu as well
 function erin_footer_menu() {
     if ( has_nav_menu( 'footer' ) ) {
@@ -63,6 +58,31 @@ function erin_alt_footer_menu() {
 	);
     }
 }
+
+if ( ! function_exists( 'erin_social_menu' ) ) :
+/**
+ * Displays the social menu
+ * Social media icon menu as per http://justintadlock.com/archives/2013/08/14/social-nav-menus-part-2
+*/
+function erin_social_menu() {
+  if ( has_nav_menu( 'social' ) ) {
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'social',
+				'container'       => 'div',
+				'container_id'    => 'menu-social',
+				'container_class' => 'social-menu',
+				'menu_id'         => 'menu-social-items',
+				'menu_class'      => 'social-menu-items',
+				'depth'           => 1,
+				'link_before'     => '<span class="screen-reader-text">',
+				'link_after'      => '</span>',
+				'fallback_cb'     => '',
+			)
+		);
+  }
+}
+endif;
 
 // Page nav
 if ( ! function_exists( 'erin_page_nav' ) ) :

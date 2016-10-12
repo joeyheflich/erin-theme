@@ -36,7 +36,8 @@ $what_column_three_list = get_field( 'what_column_three_list' );
 $what_column_four_list = get_field( 'what_column_four_list' );
 $hire_me_text = get_field( 'hire_me_text' );
 
-
+/* Shortcode */
+$contact_form = get_field( 'contact_form_shortcode' );
 
 /**** Variable List 
 	* Text 

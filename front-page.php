@@ -96,7 +96,7 @@ require_once('inc/acf.php'); ?>
 	 			<?php echo $hire_me_text; ?>
 	 		</div>
 	 		<div class="hire-col col col--forty">
-	 			<a href="#" class="button button--large button--huge-padding"><?php echo $hire_me_button; ?></a>
+	 			<a id="contact-button" href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>" class="button button--large button--huge-padding" data-featherlight="#contactform"><?php echo $hire_me_button; ?></a>
 	 		</div>
  		</div>
  	</section>
@@ -109,13 +109,14 @@ require_once('inc/acf.php'); ?>
 	 			<a href="<?php echo esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>" class="button button--large button--large-padding"><?php echo $portfolio_button; ?></a>
 	 		</div>
 	 		<div class="view-my-work-col col col--inline view-my-work-icons">
-				<i class="fa fa-linkedin"></i>
-				<i class="fa fa-twitter"></i>
-	 			<i class="fa fa-instagram"></i>
+	 			<?php erin_social_menu(); ?>
 	 		</div>
  		</div>
  	</section>
  </section>
+ 	<div id="contactform" class="lightbox">
+	 	<?php echo $contact_form; ?>
+	</div>
 </div><!-- #content -->
 <?php
 get_footer();

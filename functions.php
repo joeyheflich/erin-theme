@@ -46,10 +46,11 @@ function erin_setup() {
 	add_image_size( 'grid-image', 360, 360, true );
 	add_image_size( 'nav-image', 64, 64, true );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in four locations.
 	register_nav_menus( array(
 		'main' => esc_html__( 'Main Menu', 'erin' ),
 		'footer' => esc_html__( 'Footer Menu', 'erin' ),
+		'social' => esc_html__( 'Social Menu', 'erin' ),
 		'alt' => esc_html__( 'Footer Alt Menu', 'erin' ),
 	) );
 
@@ -65,15 +66,20 @@ function erin_setup() {
 		'caption',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'erin_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+	// Disable Contact Form 7 CSS to reduce bloat
+	add_filter( 'wpcf7_load_css', '__return_false' );
 
+	// Add menu styles
 	add_filter( 'body_class', function( $classes ) {
 	    return array_merge( $classes, array( 'drawer drawer--right' ) );
 	} );
+
+	// Remove unused sections from the customizer, so as not to confuse anyone
+	function erin_clean_customizer( $wp_customize ) {
+		$wp_customize->remove_section("colors");
+		$wp_customize->remove_section("background_image");
+	}
+	add_action( 'customize_register', 'erin_clean_customizer' );
 }
 endif;
 add_action( 'after_setup_theme', 'erin_setup' );
@@ -92,7 +98,8 @@ add_action( 'after_setup_theme', 'erin_content_width', 0 );
 
 /**
  * Register widget area.
- *
+ * Just in case we need it in the future for blog pages
+ * 
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function erin_widgets_init() {
@@ -131,6 +138,13 @@ function erin_front_page_script() {
 }
 add_action( 'wp_enqueue_scripts', 'erin_front_page_script' );
 
+// Enqueue Google Fonts
+function erin_google_fonts() {
+	wp_register_style( 'googlefonts-erin', 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Open+Sans' );
+	wp_enqueue_style( 'googlefonts-erin' );
+}
+add_action( 'wp_print_styles', 'erin_google_fonts' );
+
 /**
  * Implement the Custom Header feature.
  */
@@ -155,3 +169,12 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+// Requires Advanced Custom Fields
+// Not going to mu, in case we change this
+add_action( 'admin_notices', 'erin_theme_dependencies' );
+function erin_theme_dependencies() {
+  if( ! function_exists('get_field') ) {
+  	echo '<div class="error"><p>' . __( 'Warning: The theme needs Advanced Custom Fields to function', 'yot' ) . '</p></div>';
+  }  
+}

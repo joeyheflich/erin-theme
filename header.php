@@ -25,7 +25,7 @@
 
 	<header id="masthead" class="site-header relative clear" role="banner">
 		<div class="header-container relative max-content-width center"><!-- to my great shame, this is a container, and i will fix this when I have time -->
-			<div class="site-logo"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/site-logo.png" class="site-logo-image"></a></div>
+			<div class="site-logo"><a href="<?php echo site_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/site-logo.png" class="site-logo-image"></a></div>
 	 		<img src="<?php echo get_template_directory_uri(); ?>/images/hero-image.png" class="hero-image">
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button type="button" class="drawer-toggle drawer-hamburger">

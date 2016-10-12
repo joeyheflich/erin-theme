@@ -198,17 +198,16 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	display: inline-block;
-  	padding: 1rem 2rem;
+  padding: 1rem 2rem;
 	border: 2px solid $color__button;
 	border-radius: 8px;
 	text-align: center;
-  	font-weight: bold;
+  font-weight: bold;
 	text-transform: uppercase;
 	line-height: 1;
 	background-color: $color__button;
 	color: $color__button-text;
 	white-space: nowrap;
-	touch-action: manipulation;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
